@@ -1,6 +1,6 @@
 #include "n_tls_client.h"
 
-n_TLS_Client::n_TLS_Client(std::string& server_ip, unsigned short port) {
+n_TLS_Client::n_TLS_Client(std::string server_ip, unsigned short port) {
     try {
         memset(&this->server_addr, 0, sizeof(server_addr));
         this->server_addr.sin_family = AF_INET;

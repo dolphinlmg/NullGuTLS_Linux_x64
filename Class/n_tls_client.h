@@ -5,7 +5,7 @@
 class n_TLS_Client
 {
 public:
-    n_TLS_Client(std::string& server_ip, unsigned short port);
+    n_TLS_Client(std::string server_ip, unsigned short port);
     bool openSocket();
     bool connectSocket();
     long sendMessage(std::string msg);
