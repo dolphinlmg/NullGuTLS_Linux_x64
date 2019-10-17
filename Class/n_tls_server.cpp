@@ -52,7 +52,7 @@ unsigned short n_TLS_Server::getPort() const {
     return ntohs(this->server_addr.sin_port);
 }
 
-bool n_TLS_Server::openServer() {
+bool n_TLS_Server::openTestServer() {
     bool ret = this->openSocket() |
             this->bindSocket() |
             this->setListen() |

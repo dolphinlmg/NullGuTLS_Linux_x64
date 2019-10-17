@@ -12,7 +12,7 @@ public:
     int get_client_sock();
     unsigned short getPort();
     void setPort(unsigned short port);
-    bool openServer();
+    bool openTestServer();
 private:
     int client_sock;
     struct sockaddr_in server_addr;

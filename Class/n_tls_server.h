@@ -11,7 +11,7 @@ public:
     bool setListen(int count = 1);
     void setPort(unsigned short port);
     bool acceptSocket();
-    bool openServer();
+    bool openTestServer();
     unsigned short getPort() const;
 private:
     struct sockaddr_in server_addr;

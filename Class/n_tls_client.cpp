@@ -40,7 +40,7 @@ int n_TLS_Client::get_client_sock() {
     return this->client_sock;
 }
 
-bool n_TLS_Client::openServer() {
+bool n_TLS_Client::openTestServer() {
     bool ret =  this->openSocket() |
             this->connectSocket();
     this->sendMessage("Client Hello");
