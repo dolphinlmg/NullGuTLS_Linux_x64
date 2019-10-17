@@ -1,11 +1,6 @@
 #ifndef N_TLS_SERVER_H
 #define N_TLS_SERVER_H
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <arpa/inet.h>
-#include <iostream>
-#include <unistd.h>
-#include <memory.h>
+#include "Class/n_socket.h"
 
 class n_TLS_Server
 {

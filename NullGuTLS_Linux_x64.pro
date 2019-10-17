@@ -10,5 +10,6 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    Class/n_socket.h \
     Class/n_tls_client.h \
     Class/n_tls_server.h

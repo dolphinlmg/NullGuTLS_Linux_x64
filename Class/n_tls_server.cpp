@@ -1,10 +1,15 @@
 #include "n_tls_server.h"
 
 n_TLS_Server::n_TLS_Server(unsigned short port) {
-    memset(&this->server_addr, 0, sizeof(sockaddr_in));
-    this->server_addr.sin_family = AF_INET;
-    this->setPort(port);
-    this->server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    try {
+        memset(&this->server_addr, 0, sizeof(sockaddr_in));
+        this->server_addr.sin_family = AF_INET;
+        this->setPort(port);
+        this->server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    } catch (std::exception& ex) {
+        std::cerr << ex.what() << std::endl;
+        exit(-1);
+    }
 }
 
 bool n_TLS_Server::openSocket() {
