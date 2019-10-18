@@ -13,6 +13,7 @@ public:
     bool acceptSocket();
     bool openTestServer();
     unsigned short getPort() const;
+    int getClientSock() const;
 private:
     struct sockaddr_in server_addr;
     struct sockaddr_in client_addr;

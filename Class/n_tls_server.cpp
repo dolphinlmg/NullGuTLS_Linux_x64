@@ -44,12 +44,15 @@ bool n_TLS_Server::acceptSocket() {
     this->addr_size = sizeof(client_addr);
     this->client_sock = accept(server_sock, reinterpret_cast<struct sockaddr*>(&client_addr), &this->addr_size);
     if (this->client_sock == -1) return false;
-    write(this->client_sock, "Server Hello", 12);
     return true;
 }
 
 unsigned short n_TLS_Server::getPort() const {
     return ntohs(this->server_addr.sin_port);
+}
+
+int n_TLS_Server::getClientSock() const {
+    return this->client_sock;
 }
 
 bool n_TLS_Server::openTestServer() {
