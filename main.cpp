@@ -18,7 +18,7 @@ int main()
             //if (cin.eof())
             //    break;
             if(send_buf=="exit"){
-                close(fd);
+                //close(fd);
                 break;
             }
             cout << "Input str: " << send_buf <<endl;
@@ -28,7 +28,7 @@ int main()
             read(fd, receve_buf, MAX_SIZE);
             cout  << "Server: " << receve_buf << endl;
         }
-        //close(fd);
+        close(fd);
         send_buf = "";
     }
 }
