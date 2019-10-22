@@ -3,9 +3,17 @@
 #define MAX_SIZE 1024
 using namespace std;
 
-int main()
+void usage(){
+    printf("syntax: ./file <ip> <port>\n");
+}
+int main(int argc, const char **argv)
 {
-    n_TLS_Client client("172.203.0.10",1234);
+    if(argc < 3){
+        usage();
+        return -1;
+    }
+    string ip = argv[1];
+    n_TLS_Client client(ip, static_cast<unsigned short>(atoi(argv[2])));
     char receve_buf[MAX_SIZE];
     //char send_buf[MAX_SIZE];
     string send_buf;
