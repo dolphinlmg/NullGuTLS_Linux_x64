@@ -4,9 +4,14 @@
 
 using namespace std;
 
-int main()
+[[ noreturn ]] void usage(const char** argv);
+
+int main(int argc, const char** argv)
 {
-    n_TLS_Server server(1234);
+    if (argc != 2)
+        usage(argv);
+
+    n_TLS_Server server(static_cast<unsigned short>(atoi(argv[1])));
     char receve_buf[MAX_SIZE] = "";
 
     server.openSocket();
@@ -25,7 +30,7 @@ int main()
             if (status > 0) {
                 receve_buf[status] = 0;
                 cout << receve_buf << endl << endl;
-                write(fd, "Server receved", 15);
+                write(fd, "Server receved\n", 16);
             } else if (status == 0) {
                 cout << "Peer close the socket.." << endl << endl;
                 close(fd);
@@ -35,4 +40,10 @@ int main()
         }
     }
 
+}
+
+void usage(const char** argv){
+    cerr << "Usage: " << argv[0] <<
+            " <port>" << endl;
+    exit(-1);
 }
